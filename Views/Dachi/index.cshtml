@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <div>
+            <p>Fullness: @ViewBag.Fullness</p>
+            <p>Happines: @ViewBag.Happiness</p>
+            <p>Meals: @ViewBag.Meals</p>
+            <p>Energy: @ViewBag.Energy</p>
+        </div>
+
+        <div>
+            <img src="~/images/21-baby-custom1.gif"/ >
+           
+        </div>
+        <div>
+
+
+
+            @if(@ViewBag.Happiness == 100 && @ViewBag.Fullness == 100 && @ViewBag.Energy == 100)
+            {
+                <p>"YEAAAH!!!! YOU WON !!!"</p>
+                <form action="reset" method="post">
+                    <input type="submit" name="reset" id="reset" value="Restart">
+                </form>
+
+            }
+
+            @if(@ViewBag.Happiness <= 0 || @ViewBag.Fullness <= 0)
+            {
+                <p>"RIP Dojodachi ..."</p>
+                <form action="reset" method="post">
+                    <input type="submit" name="reset" id="reset" value="Restart">
+                </form>
+            }
+
+            else
+            {
+                <p>@TempData["message"]</p>
+                <form action="sleep" method="post">
+                    <input type="submit" name="sleep" id="sleep" value="sleep">
+                </form>
+                <form action="play" method="post">
+                    <input type="submit" name="play" id="play" value="play">
+                </form>
+                <form action="work" method="post">
+                    <input type="submit" name="work" id="work" value="work">
+                </form>
+                <form action="feed" method="post">
+                    <input type="submit" name="feed" id="feed" value="feed">
+                </form>
+            }
+        </div>
+    </div>
+</body>
+</html>
